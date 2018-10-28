@@ -69,3 +69,109 @@ body {
   left: 45%;
   top: 45%;
 }
+
+thead {
+  color: #555;
+  font-weight: bold;
+}
+
+th,
+td {
+  border-right: 1px solid #cce;
+  border-bottom: 1px solid #cce;
+  text-align: left;
+  color: #555;
+  font-size: 12px;
+  padding: 10px;
+}
+
+td:last-child,
+th:last-child {
+  border-right: none;
+}
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #f5f7fa;
+}
+
+.table-container {
+  overflow-x: auto;
+  border: 2px solid #009bd4;
+  border-radius: 5px;
+  margin: 10px;
+}
+.table-header {
+  background-color: #009bd4;
+  color: white;
+  padding: 15px;
+}
+
+.label {
+  margin: 2px;
+  padding: 2px;
+  color: white;
+  text-align: center;
+  border-radius: 2px;
+}
+.label-done {
+  background-color: #65d065;
+}
+.label-confirm {
+  background-color: #04b0f0;
+}
+.label-expired {
+  background-color: #ffcc1b;
+}
+.label-failed {
+  background-color: #f87b43;
+}
+
+.form-container {
+  border: 1px solid #cce;
+  padding: 5px 5px 5px 50px;
+}
+
+form label {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 10px;
+  color: #555;
+}
+
+form input,
+form select {
+  width: 250px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.form-error-container {
+  margin: -10px 0 20px 15px;
+  color: red;
+  font-size: 11px;
+}
+
+.edit-button {
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #eee;
+  padding: 2px 0;
+  text-align: center;
+  background-color: #f5f7fa;
+}
+.submit-button {
+  width: 95%;
+  background-color: #04b0f0;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
