@@ -14,10 +14,16 @@ import 'moment/locale/ru'
 moment.locale('ru')
 
 class OrdersPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      orders: props.orders,
+    }
+  }
   componentDidMount() {
     this.props.editOrderCancel()
     const now = moment()
-    this.props.orders.forEach(order => {
+    this.state.orders.forEach(order => {
       if (order.status === 'Confirm' && now.diff(moment(order.doneDate)) > 0) {
         this.props.editOrderCompomplit(order.id, {
           ...order,
@@ -35,13 +41,31 @@ class OrdersPage extends Component {
     this.props.history.push('/add_order')
   }
 
+  sortFunc = field => {
+    return (a, b) => {
+      if (a[field] > b[field]) return 1
+      if (a[field] < b[field]) return -1
+      return 0
+    }
+  }
+
+  sortedField = (field, rev = false) => () => {
+    let orders = [...this.state.orders]
+    orders.sort(this.sortFunc(field))
+    if (rev) orders.reverse()
+    this.setState({
+      orders,
+    })
+  }
+
   render() {
-    const { orders } = this.props
+    const { orders } = this.state
     return (
       <OrderList
         orders={orders}
         editOrderPossibility={this.editOrderPossibility}
         editOrder={this.editOrder}
+        sortedField={this.sortedField}
       />
     )
   }

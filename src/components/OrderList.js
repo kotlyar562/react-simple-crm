@@ -16,19 +16,52 @@ const StatusLabel = ({ status }) => {
   return <div className={cl}>{status}</div>
 }
 
-const OrderList = ({ orders, editOrderPossibility, editOrder }) => (
+const SortedButtons = ({ field, sortedField }) => (
+  <>
+    <div className="sorted-button" onClick={sortedField(field, true)}>
+      ▼
+    </div>
+    <div className="sorted-button" onClick={sortedField(field)}>
+      ▲
+    </div>
+  </>
+)
+
+const OrderList = ({
+  orders,
+  editOrderPossibility,
+  editOrder,
+  sortedField,
+}) => (
   <div className="table-container">
     <div className="table-header">Простая таблица</div>
     <table className="table">
       <thead>
         <tr>
-          <th>Дата</th>
-          <th>ID заказа</th>
-          <th>Тип заказа</th>
-          <th>Заказчик</th>
-          <th>Поставщик</th>
-          <th>Выполнен</th>
-          <th>Статус</th>
+          <th>
+            Дата <SortedButtons field="date" sortedField={sortedField} />
+          </th>
+          <th>
+            ID заказа <SortedButtons field="id" sortedField={sortedField} />
+          </th>
+          <th>
+            Тип заказа <SortedButtons field="type" sortedField={sortedField} />
+          </th>
+          <th>
+            Заказчик{' '}
+            <SortedButtons field="customer" sortedField={sortedField} />
+          </th>
+          <th>
+            Поставщик{' '}
+            <SortedButtons field="provider" sortedField={sortedField} />
+          </th>
+          <th>
+            Выполнен{' '}
+            <SortedButtons field="doneDate" sortedField={sortedField} />
+          </th>
+          <th>
+            Статус <SortedButtons field="status" sortedField={sortedField} />
+          </th>
           <th />
         </tr>
       </thead>

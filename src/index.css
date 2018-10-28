@@ -175,3 +175,12 @@ form select {
   border-radius: 3px;
   cursor: pointer;
 }
+
+.sorted-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 2px;
+  margin: 2px 0 2px 2px;
+  color: gray;
+  font-size: 10px;
+}
